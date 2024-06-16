@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Object Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #video, canvas {
+            width: 100%;
+            max-width: 1024px;
+            height: auto;  /* Adjust height dynamically */
+            display: block;
+            border-bottom: 2px solid #007BFF;  /* Add border to visually separate */
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .controls input[type="file"] {
+            display: none;
+        }
+        .controls label {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .controls label:hover {
+            background-color: #0056b3;
+        }
+        .controls button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+        .controls button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas>  <video id="video" controls style="opacity: 0;"></video> </canvas>
+        <!-- <canvas style="display:none;"> -->
+    </div>
+    <div class="controls">
+        <label for="upload">Upload Video</label>
+        <input type="file" id="upload" accept="video/*">
+        <button id="play" style="display:none;">Play</button>
+        <button id="pause" style="display:none;">Pause</button>
+    </div>
+    <script src="object_detector.js"></script>
+</body>
+</html>
+
